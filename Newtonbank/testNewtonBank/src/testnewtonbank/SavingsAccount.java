@@ -22,7 +22,7 @@ public class SavingsAccount {
     private int accountNo;
     private static int accountCounter = 1000;
 
-    public SavingsAccount() {
+    public SavingsAccount() { //Ingenting behövs tas emot när man skapar ett konto. Man får använda deposit för att sätta in pengar.
         balance = 0;
         interestRate = 1;
         accountType = "Savings account";
@@ -72,18 +72,6 @@ public class SavingsAccount {
 
     public static void setAccountCounter(int accountCounter) {
         SavingsAccount.accountCounter = accountCounter;
-    }
-    
-    public void deposit(double amount){
-        balance += amount; //Lägger till det användaren matade in, till balance
-    }
-    
-    public void withdraw(double amount){
-        if(balance - amount >= 0){ //Kollar om det finns tillräckligt med pengar på kontot
-            balance -= amount;
-        } else {
-            System.out.println("Not enough money in your account, you poor bastard!");
-        }
     }
     
     @Override
