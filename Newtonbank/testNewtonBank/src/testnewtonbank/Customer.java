@@ -5,31 +5,44 @@
  */
 package testnewtonbank;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author skate
  */
 public class Customer {
     private String name;
-    private String age;
-    private int saldo;
+    private String ssn;
+    
+    private ArrayList <SavingsAccount> numberOfAccount = new ArrayList();
     
     public Customer(){
     }
     
-    public Customer(String name,String age){
+    public Customer(String name,String ssn){
     setName(name);
-    setAge(age);
+    setSsn(ssn);
+    }
+
+    public ArrayList<SavingsAccount> getNumberOfAccount() {
+        return numberOfAccount;
+    }
+
+    public void setNumberOfAccount(ArrayList<SavingsAccount> numberOfAccount) {
+        this.numberOfAccount = numberOfAccount;
+    }
     
+    
+
+    public String getSsn() {
+        return ssn;
     }
 
-    public int getSaldo() {
-        return saldo;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
-    public void setSaldo(int saldo) {
-        this.saldo = saldo;
-    }
     
     
     public String getName() {
@@ -40,13 +53,6 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
     
     
     

@@ -87,8 +87,6 @@ public class checkAccountController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      
-        
-        
         cust.setItems(FXMLDocumentController.customer);
         staticName.setVisible(false);
         changeName.setVisible(false);
