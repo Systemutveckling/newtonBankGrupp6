@@ -63,7 +63,6 @@ public class FXMLDocumentController implements Initializable {
         customer.add(name.getText());
         label.setText("the account has been registered!");
         }
-          System.out.println("Hello");
     }
     
     @Override
