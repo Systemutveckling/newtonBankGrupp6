@@ -6,6 +6,7 @@
 package testnewtonbank;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -28,7 +29,7 @@ public class BankLogic {
         this.customerList = customerList;
     }
     
-    public boolean addCustomer(String name,String ssn){
+    public boolean addCustomer(String name,Long ssn){
         Customer c = new Customer(name, ssn);
         customerList.add(c);
         
@@ -36,4 +37,14 @@ public class BankLogic {
         
     }
     
+    public List<String> getCostumer(long ssn){
+        List<String> cust = new ArrayList<>();
+        for(Customer c : customerList){
+        if(c.getSsn() == ssn){
+         cust.add(c.getName() + " " + c.getSsn());
+        }
+        }
+        
+        return cust;
+    }
 }

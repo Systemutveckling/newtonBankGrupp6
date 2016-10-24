@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class Customer {
     private String name;
-    private String ssn;
+    private Long ssn;
     
     private ArrayList <SavingsAccount> numberOfAccount = new ArrayList();
     
     public Customer(){
     }
     
-    public Customer(String name,String ssn){
+    public Customer(String name,Long ssn){
     setName(name);
     setSsn(ssn);
     }
@@ -35,11 +35,11 @@ public class Customer {
     
     
 
-    public String getSsn() {
+    public Long getSsn() {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    public void setSsn(Long ssn) {
         this.ssn = ssn;
     }
 

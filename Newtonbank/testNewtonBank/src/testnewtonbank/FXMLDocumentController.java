@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
          if(ssn.getText().isEmpty() || name.getText().isEmpty()){
         label.setText("Please you need to enter a name");
         } else{ 
-        p.addCustomer(name.getText(), ssn.getText());
+        p.addCustomer(name.getText(), Long.parseLong(ssn.getText()));
         customer.add(name.getText());
         label.setText("the account has been registered!");
         }
