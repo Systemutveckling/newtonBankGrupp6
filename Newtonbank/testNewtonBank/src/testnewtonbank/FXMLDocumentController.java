@@ -49,6 +49,7 @@ public class FXMLDocumentController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        
     }
     
     
@@ -62,7 +63,7 @@ public class FXMLDocumentController implements Initializable {
         customer.add(name.getText());
         label.setText("the account has been registered!");
         }
-          
+          System.out.println("Hello");
     }
     
     @Override
