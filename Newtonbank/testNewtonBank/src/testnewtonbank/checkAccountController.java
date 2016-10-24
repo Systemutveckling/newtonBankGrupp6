@@ -43,7 +43,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import static testnewtonbank.FXMLDocumentController.c;
 import static testnewtonbank.FXMLDocumentController.customer;
 
 /**
@@ -62,6 +61,9 @@ public class checkAccountController implements Initializable {
     @FXML
     private Label changeName;
     @FXML
+    private ObservableList customerList;
+    
+    @FXML
     private void goBack(ActionEvent event) throws IOException {
        Parent root= FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));        
         Scene scene = new Scene(root);
@@ -72,26 +74,28 @@ public class checkAccountController implements Initializable {
     
     @FXML
     private void seeAccountInfo(ActionEvent event) {
+        
+        
         if(cust.getSelectionModel().getSelectedItem() != null){     
             
-        System.out.println(cust.getSelectionModel().getSelectedItem());
         staticName.setVisible(true);
         changeName.setVisible(true);
-        changeName.setText(cust.getSelectionModel().getSelectedItem().toString());
         
+        for(Customer c : FXMLDocumentController.p.getCustomerList()){
         
+            changeName.setText(c.getName());
+            System.out.println(c.getName());
+        }
         }
         
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+
         cust.setItems(FXMLDocumentController.customer);
         staticName.setVisible(false);
         changeName.setVisible(false);
-        
-
         
     }    
     

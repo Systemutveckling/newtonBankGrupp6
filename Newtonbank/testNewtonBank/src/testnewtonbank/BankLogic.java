@@ -5,6 +5,8 @@
  */
 package testnewtonbank;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author skate
@@ -12,6 +14,26 @@ package testnewtonbank;
 public class BankLogic {
     
     
+    private ArrayList <Customer> customerList = new ArrayList();
     
+    public BankLogic(){
+        
+    }
+
+    public ArrayList<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(ArrayList<Customer> customerList) {
+        this.customerList = customerList;
+    }
+    
+    public boolean addCustomer(String name,String ssn){
+        Customer c = new Customer(name, ssn);
+        customerList.add(c);
+        
+        return true;
+        
+    }
     
 }

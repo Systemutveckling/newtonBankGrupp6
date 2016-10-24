@@ -28,8 +28,8 @@ import javafx.stage.Stage;
  * @author skate
  */
 public class FXMLDocumentController implements Initializable {
-    
-    public static Customer c = new Customer();
+    @FXML
+    public static BankLogic p;
     
     @FXML
     private Label label;
@@ -40,11 +40,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField name;
     @FXML
-    private TextField age;
-    @FXML
-    private TextField saldo;
-    
-    
+    private TextField ssn;
     @FXML
      public static ObservableList<String> customer = FXCollections.observableArrayList();
     @FXML
@@ -59,23 +55,20 @@ public class FXMLDocumentController implements Initializable {
     @FXML
         private void registerAccount(ActionEvent event) {
             
-         if(name.getText() == null || name.getText().isEmpty()){
+         if(ssn.getText().isEmpty() || name.getText().isEmpty()){
         label.setText("Please you need to enter a name");
         } else{ 
-           c.setName(name.getText());
-        customer.add(c.getName());
+        p.addCustomer(name.getText(), ssn.getText());
+        customer.add(name.getText());
         label.setText("the account has been registered!");
         }
           
-            
-            
-   
-        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        p = new BankLogic();
+        
     }    
     
 }
