@@ -15,7 +15,7 @@ public class GitTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Det fungear!!");
+        System.out.println("Det fungerar!!!!!");
     }
     
 }
