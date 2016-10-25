@@ -101,5 +101,35 @@ public class BankLogic {
 
         return false;
     }
-
+    
+    public String getAccount(long ssn, int accountNo) {
+	ArrayList<SavingsAccount> ac;
+	for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getSsn() == ssn) {
+            ac = customerList.get(i).getNumberOfAccount();
+                for (SavingsAccount account : ac) {
+		if (account.getAccountNo() == accountNo) {
+                    return account.toString();
+                }
+              }
+            }
+        }
+		return null;
+    }
+    
+    public String closeAccount(long ssn, int accountNo) {
+        ArrayList<SavingsAccount> ac;
+        for (Customer customer : customerList) {
+            if (ssn == customer.getSsn()) {
+                ac = customer.getNumberOfAccount();
+                if (ac == null) {
+                    return null;
+                }
+                customerList.remove(accountNo);
+                return ac.toString();
+            }
+        }
+        return null;
+}
+   
 }
