@@ -57,9 +57,11 @@ public class checkAccountController implements Initializable {
 @FXML
     private ListView cust;  
     @FXML
-    private Label staticName;
+    private Label changeSsn;
     @FXML
     private Label changeName;
+    @FXML
+    private Button custView;
     @FXML
     private ObservableList customerList;
     
@@ -78,13 +80,14 @@ public class checkAccountController implements Initializable {
         
         if(cust.getSelectionModel().getSelectedItem() != null){     
             
-        staticName.setVisible(true);
-        changeName.setVisible(true);
-        
+        custView.setVisible(true);
+       
         for(Customer c : FXMLDocumentController.p.getCustomerList()){
         
-            changeName.setText(c.getName());
+            changeName.setText("Name: " +  c.getName());
             System.out.println(c.getName());
+            
+            changeSsn.setText("Ssn: " + c.getSsn());
         }
         }
         
@@ -94,8 +97,8 @@ public class checkAccountController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         cust.setItems(FXMLDocumentController.customer);
-        staticName.setVisible(false);
-        changeName.setVisible(false);
+       
+        custView.setVisible(false);
         
     }    
     

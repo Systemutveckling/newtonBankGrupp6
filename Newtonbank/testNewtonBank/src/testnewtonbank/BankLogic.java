@@ -36,7 +36,7 @@ public class BankLogic {
         return true;
         
     }
-    
+     
     public List<String> getCostumer(long ssn){
         List<String> cust = new ArrayList<>();
         for(Customer c : customerList){

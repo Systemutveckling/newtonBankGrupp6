@@ -9,10 +9,12 @@
 <AnchorPane id="AnchorPane" prefHeight="324.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testnewtonbank.checkAccountController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button layoutX="165.0" layoutY="236.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
+      <Button layoutX="26.0" layoutY="236.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="69.0" text="Go back" />
       <ListView fx:id="cust" layoutX="26.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="42.0" layoutY="236.0" mnemonicParsing="false" onAction="#seeAccountInfo" text="Check account" />
-      <Label fx:id="staticName" layoutX="273.0" layoutY="27.0" text="Name: " />
-      <Label fx:id="changeName" layoutX="325.0" layoutY="27.0" />
+      <Button layoutX="111.0" layoutY="236.0" mnemonicParsing="false" onAction="#seeAccountInfo" prefHeight="35.0" prefWidth="115.0" text="Check account" />
+      <Label fx:id="changeName" layoutX="245.0" layoutY="27.0" prefHeight="17.0" prefWidth="215.0" />
+      <Label fx:id="changeSsn" layoutX="245.0" layoutY="64.0" prefHeight="17.0" prefWidth="215.0" />
+      <Label layoutX="245.0" layoutY="103.0" prefHeight="17.0" prefWidth="215.0" />
+      <Button fx:id="custView" layoutX="295.0" layoutY="236.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" text="Customer view" />
     </children>
 </AnchorPane>
