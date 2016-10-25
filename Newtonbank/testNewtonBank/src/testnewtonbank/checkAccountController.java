@@ -76,15 +76,19 @@ public class checkAccountController implements Initializable {
     private void seeAccountInfo(ActionEvent event) {
         
         
-        if(cust.getSelectionModel().getSelectedItem() != null){     
+        if(cust.getSelectionModel().getSelectedItem() != null ){     
             
         staticName.setVisible(true);
         changeName.setVisible(true);
-        
         for(Customer c : FXMLDocumentController.p.getCustomerList()){
-        
+           if(cust.getSelectionModel().getSelectedItem().equals(String.valueOf(c.getSsn()))){
             changeName.setText(c.getName());
             System.out.println(c.getName());
+            
+           } 
+           
+            
+            
         }
         }
         

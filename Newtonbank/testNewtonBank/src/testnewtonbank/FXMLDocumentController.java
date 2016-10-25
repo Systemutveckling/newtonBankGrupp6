@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -29,8 +30,9 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
     @FXML
+    public static ObservableList<String> customer = FXCollections.observableArrayList();
+    @FXML
     public static BankLogic p;
-    
     @FXML
     private Label label;
     @FXML
@@ -41,8 +43,6 @@ public class FXMLDocumentController implements Initializable {
     private TextField name;
     @FXML
     private TextField ssn;
-    @FXML
-     public static ObservableList<String> customer = FXCollections.observableArrayList();
     @FXML
     private void checkAccount(ActionEvent event) throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource("checkAccount.fxml"));        
@@ -57,10 +57,12 @@ public class FXMLDocumentController implements Initializable {
         private void registerAccount(ActionEvent event) {
             
          if(ssn.getText().isEmpty() || name.getText().isEmpty()){
+        label.setTextFill(Color.web("red"));
         label.setText("Please you need to enter a name");
         } else{ 
         p.addCustomer(name.getText(), Long.parseLong(ssn.getText()));
-        customer.add(name.getText());
+        customer.add(ssn.getText());
+        label.setTextFill(Color.web("green"));
         label.setText("the account has been registered!");
         }
     }
@@ -68,6 +70,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         p = new BankLogic();
+        
+     
         
     }    
     

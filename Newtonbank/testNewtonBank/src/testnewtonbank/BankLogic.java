@@ -15,7 +15,7 @@ import java.util.List;
 public class BankLogic {
 
     private ArrayList<Customer> customerList = new ArrayList();
-
+    private Customer d;
     public BankLogic() {
 
     }
@@ -29,8 +29,8 @@ public class BankLogic {
     }
 
     public boolean addCustomer(String name, Long ssn) {
-        Customer c = new Customer(name, ssn);
-        customerList.add(c);
+         
+        customerList.add(new Customer(name, ssn));
 
         return true;
 
@@ -57,7 +57,7 @@ public class BankLogic {
                 rm.add("We removed " + c.getName() + " ssn = " + c.getSsn());
                 for (SavingsAccount sa : c.getNumberOfAccount()) {
                     rm.add(sa.getAccountNo() + " " + sa.getAccountType() + " " + sa.getBalance() + " " + sa.getInterest());
-
+                    
                 }
                 customerList.remove(c);
             }
