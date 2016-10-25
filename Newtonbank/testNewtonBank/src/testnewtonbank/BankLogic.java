@@ -102,26 +102,6 @@ public class BankLogic {
         return false;
     }
     
-    public int addSavingsAccount(long ssn){
-        boolean flag = false;
-        SavingsAccount sa = new SavingsAccount();
-        for(Customer c : customerList){
-            if(c.getSsn().equals(ssn)){
-                c.getNumberOfAccount().add(sa);
-                flag = true;
-            }
-        }
-        if(flag == false){
-            return -1;
-        } else {
-            return sa.getAccountNo();
-        }
-    }
-    
-    public boolean deposit(String ssn, int accountNo, double amount){
-        return true;
-    }
-    
     public String getAccount(long ssn, int accountNo) {
 	ArrayList<SavingsAccount> ac;
 	for (int i = 0; i < customerList.size(); i++) {
