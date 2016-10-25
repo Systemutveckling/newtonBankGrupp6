@@ -78,7 +78,7 @@ public class checkAccountController implements Initializable {
     private void seeAccountInfo(ActionEvent event) {
         
         
-        if(cust.getSelectionModel().getSelectedItem() != null){     
+        if(cust.getSelectionModel().getSelectedItem() != null ){     
             
         custView.setVisible(true);
        
