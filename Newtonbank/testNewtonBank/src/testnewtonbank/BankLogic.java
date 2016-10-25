@@ -95,5 +95,20 @@ public class BankLogic {
         }
 		return null;
     }
+    
+    public String closeAccount(long ssn, int accountNo) {
+        ArrayList<SavingsAccount> ac;
+        for (Customer customer : customerList) {
+            if (ssn == customer.getSsn()) {
+                ac = customer.getNumberOfAccount();
+                if (ac == null) {
+                    return null;
+                }
+                customerList.remove(accountNo);
+                return ac.toString();
+            }
+        }
+        return null;
+}
    
 }
