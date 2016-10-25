@@ -32,7 +32,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public static ObservableList<String> customer = FXCollections.observableArrayList();
     @FXML
-    public static BankLogic p;
+    public static BankLogic p = new BankLogic();
     @FXML
     private Label label;
     @FXML
@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
         label.setText("Please you need to enter a name");
         } else{ 
         p.addCustomer(name.getText(), Long.parseLong(ssn.getText()));
-        customer.add(ssn.getText());
+        customer.add(name.getText());
         label.setTextFill(Color.web("green"));
         label.setText("the account has been registered!");
         }
@@ -69,7 +69,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        p = new BankLogic();
+        
         
      
         
