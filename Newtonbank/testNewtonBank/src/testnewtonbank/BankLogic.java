@@ -80,5 +80,20 @@ public class BankLogic {
 
         return false;
     }
-
+    
+    public String getAccount(long ssn, int accountNo) {
+	ArrayList<SavingsAccount> ac;
+	for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getSsn() == ssn) {
+            ac = customerList.get(i).getNumberOfAccount();
+                for (SavingsAccount account : ac) {
+		if (account.getAccountNo() == accountNo) {
+                    return account.toString();
+                }
+              }
+            }
+        }
+		return null;
+    }
+   
 }
