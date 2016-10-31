@@ -86,25 +86,29 @@ public class checkAccountController implements Initializable {
     @FXML
     private void seeAccountInfo(MouseEvent event) {
         
-        
-        if(cust.getSelectionModel().getSelectedItem() != null ){     
+        if(cust.getSelectionModel().getSelectedItem() != null)
+             
             
        
         for(Customer c : FXMLDocumentController.p.getCustomerList()){
+            
+        String str = (String)cust.getSelectionModel().getSelectedItem();
         
+            if(str.substring(str.length()-12, str.length()).equals(String.valueOf(c.getSsn()))){
             showName.setText("Name: " +  c.getName());
             
             showSsn.setText("Ssn: " + c.getSsn());
             
             showAccount.setText("Accounts");
-        }
+            }
+        
         }
         
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         cust.setItems(FXMLDocumentController.customer);
        
         
