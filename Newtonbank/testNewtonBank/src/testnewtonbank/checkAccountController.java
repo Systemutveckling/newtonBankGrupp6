@@ -42,6 +42,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import static testnewtonbank.FXMLDocumentController.customer;
 
@@ -57,11 +58,19 @@ public class checkAccountController implements Initializable {
 @FXML
     private ListView cust;  
     @FXML
-    private Label changeSsn;
+    private Label showSsn;
     @FXML
-    private Label changeName;
+    private Label showName;
     @FXML
-    private Button custView;
+    private Label showAccount;
+    
+    @FXML
+    private Label showNr;
+    @FXML
+    private Label showBalance;
+    @FXML
+    private Label showInterest;
+    
     @FXML
     private ObservableList customerList;
     
@@ -75,19 +84,19 @@ public class checkAccountController implements Initializable {
     }
     
     @FXML
-    private void seeAccountInfo(ActionEvent event) {
+    private void seeAccountInfo(MouseEvent event) {
         
         
         if(cust.getSelectionModel().getSelectedItem() != null ){     
             
-        custView.setVisible(true);
        
         for(Customer c : FXMLDocumentController.p.getCustomerList()){
         
-            changeName.setText("Name: " +  c.getName());
-            System.out.println(c.getName());
+            showName.setText("Name: " +  c.getName());
             
-            changeSsn.setText("Ssn: " + c.getSsn());
+            showSsn.setText("Ssn: " + c.getSsn());
+            
+            showAccount.setText("Accounts");
         }
         }
         
@@ -98,7 +107,7 @@ public class checkAccountController implements Initializable {
 
         cust.setItems(FXMLDocumentController.customer);
        
-        custView.setVisible(false);
+        
         
     }    
     
