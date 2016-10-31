@@ -22,9 +22,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -51,15 +48,15 @@ import static testnewtonbank.FXMLDocumentController.p;
  * @author skate
  */
 public class checkAccountController implements Initializable {
-  
 
-    
     public static int addHardCodedCostumers = 0;
-    
+
     @FXML
     public static ObservableList<String> customer = FXCollections.observableArrayList();
     @FXML
-    private ListView cust;  
+    private ListView cust;
+    @FXML
+    private ListView accountView;
     @FXML
     private Label showSsn;
     @FXML
@@ -74,63 +71,71 @@ public class checkAccountController implements Initializable {
     private Label showBalance;
     @FXML
     private Label showInterest;
-    
+
     @FXML
     private ObservableList customerList;
-    
+
     @FXML
     private void addCustomer(ActionEvent event) throws IOException {
-       Parent root= FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));        
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        
+
     }
-    
+
     @FXML
     private void seeAccountInfo(MouseEvent event) {
-        
-        if(cust.getSelectionModel().getSelectedItem() != null)
-             
+
+        if (cust.getSelectionModel().getSelectedItem() != null) {
             
-       
-        for(Customer c : FXMLDocumentController.p.getCustomerList()){
-            
-        String str = (String)cust.getSelectionModel().getSelectedItem();
-        
-            if(str.substring(str.length()-12, str.length()).equals(String.valueOf(c.getSsn()))){
-            showName.setText("Name: " +  c.getName());
-            
-            showSsn.setText("Ssn: " + c.getSsn());
-            
-            showAccount.setText("Accounts");
-            for(SavingsAccount sa : c.getNumberOfAccount()){
-            
-            accounts.add(sa.getAccountNo() + " " + sa.getAccountType());
+//            accountView.setItems(null);
+            accounts.clear();
+
+            for (Customer c : FXMLDocumentController.p.getCustomerList()) {
+
+                String str = (String) cust.getSelectionModel().getSelectedItem();
+
+                if (str.substring(str.length() - 12, str.length()).equals(String.valueOf(c.getSsn()))) {
+                    showName.setText("Name: " + c.getName());
+
+                    showSsn.setText("Ssn: " + c.getSsn());
+
+                    showAccount.setText("Accounts");
+                    for (SavingsAccount sa : c.getNumberOfAccount()) {
+
+                        accounts.add(sa.getAccountNo() + " " + sa.getAccountType());
+                    }
+                    accountView.setItems(accounts);
+                }
+
             }
-            }
-        
         }
-        
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(addHardCodedCostumers < 1){
-        
-        p.addCustomer("Hampus", 199112253519L);
-        p.addSavingsAccount(199112253519L);
-        p.addCustomer("Joel", 199112245401L);
-        p.addSavingsAccount(199112245401L);
-        p.addCustomer("Alexiz", 199112253192L);
-        p.addSavingsAccount(199112253192L);
-        ++addHardCodedCostumers;
-        System.out.println(addHardCodedCostumers);
+        if (addHardCodedCostumers < 1) {
+
+            p.addCustomer("Hampus", 199112253519L);
+            p.addSavingsAccount(199112253519L);
+            p.addSavingsAccount(199112253519L);
+            p.addSavingsAccount(199112253519L);
+            p.addCustomer("Joel", 199112245401L);
+            p.addSavingsAccount(199112245401L);
+            p.addSavingsAccount(199112245401L);
+            p.addCustomer("Alexiz", 199112253192L);
+            p.addSavingsAccount(199112253192L);
+            p.addSavingsAccount(199112253192L);
+            p.addSavingsAccount(199112253192L);
+            p.addSavingsAccount(199112253192L);
+            ++addHardCodedCostumers;
+            System.out.println(addHardCodedCostumers);
         }
         checkAccountController.customer = FXCollections.observableArrayList(p.getCustomers());
         cust.setItems(customer);
-        
-        
-    }    
-    
+
+    }
+
 }
