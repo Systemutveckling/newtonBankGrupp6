@@ -30,10 +30,25 @@ public class BankLogic {
     }
 
     public boolean addCustomer(String name, Long ssn) {
-
+        
+        boolean flag = true;
+        for(Customer c : customerList){
+        
+            
+            
+            if(c.getSsn() == ssn){
+                
+                flag = false;
+            } 
+        }
+        
+        if(flag){
         customerList.add(new Customer(name, ssn));
+        }
+        
+        
 
-        return true;
+        return flag;
 
     }
      
@@ -68,23 +83,35 @@ public class BankLogic {
         }
     }
 
-    public boolean deposit(String ssn, int accountNo, double amount) {
-        return true;
+    public boolean deposit(Long ssn, int accountNo, double amount) {
+        for(Customer c : customerList){
+            if(c.getSsn() == ssn){
+            for(SavingsAccount sa : c.getNumberOfAccount()){
+            sa.setBalance(sa.getBalance() + amount);
+            return true;
+            }
+            }
+        }
+        return false;
     }
 
     public List<String> removeCustomer(long ssn) {
         List<String> rm = new ArrayList();
+        Customer temp = new Customer();
         for (Customer c : customerList) {
             if (c.getSsn() == ssn) {
+                temp = c;
                 rm.add("We removed " + c.getName() + " ssn = " + c.getSsn());
                 for (SavingsAccount sa : c.getNumberOfAccount()) {
-                    rm.add(sa.getAccountNo() + " " + sa.getAccountType() + " " + sa.getBalance() + " " + sa.getInterest());
-
+                    rm.add(sa.getAccountNo() + " " + sa.getAccountType() + " " + sa.getBalance() + " " + sa.getClosingBalance());
                 }
-                customerList.remove(c);
+                
+                
             }
 
         }
+        customerList.remove(temp);
+        
         return rm;
 
     }
@@ -133,7 +160,7 @@ public class BankLogic {
             if (ssn == customer.getSsn()) { //Hämtar kunden person nr.           
                 for (SavingsAccount account : customer.getNumberOfAccount()) {
                     if (accountNo == account.getAccountNo()) {
-                        if (amount < account.getBalance()) {
+                        if (amount <= account.getBalance()) {
                             account.setBalance(account.getBalance() - amount);
                             flag = true;
                         }
@@ -156,22 +183,33 @@ public class BankLogic {
 
         boolean flag = false;
         SavingsAccount s = new SavingsAccount();
+        Customer ce = new Customer();
         for (Customer c : customerList) {
             if (ssn == c.getSsn()) {
                 for (SavingsAccount sa : c.getNumberOfAccount()) {
                     if (accountNo == sa.getAccountNo()) {
                         s = sa;
-                        c.getNumberOfAccount().remove(sa);
+                        ce = c;
                         flag = true;
                     }
                 }
             }
         }
         if (flag) {
-            return "Balance including interest: " + s.getInterest();
+            String result = "" + s.getClosingBalance();
+            ce.getNumberOfAccount().remove(s);
+            return "Balance including interest: " + result;
         } else {
             return "Couldn't delete account.";
         }
+    }
+    
+    public List<String> getCustomers(){
+     List<String> customerInfo = new ArrayList();   
+    for(Customer c : customerList){
+        customerInfo.add("name = " +  c.getName() + " Social security = " + c.getSsn());
+    }
+    return customerInfo;
     }
 
 }
