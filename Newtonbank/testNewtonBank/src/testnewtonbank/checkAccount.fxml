@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,20 +9,89 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="443.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testnewtonbank.checkAccountController">
+<AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testnewtonbank.checkAccountController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button layoutX="26.0" layoutY="369.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="69.0" text="Go back" />
-      <ListView fx:id="cust" layoutX="26.0" layoutY="20.0" onMouseClicked="#seeAccountInfo" prefHeight="320.0" prefWidth="197.0" />
-      <Label fx:id="showName" layoutX="253.0" layoutY="48.0" prefHeight="17.0" prefWidth="200.0" />
-      <Label fx:id="showSsn" layoutX="253.0" layoutY="82.0" prefHeight="17.0" prefWidth="200.0" />
-      <Label fx:id="showAccount" layoutX="253.0" layoutY="109.0" prefHeight="23.0" prefWidth="200.0">
+      <Button layoutX="54.0" layoutY="369.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="69.0" text="Go back">
+         <textFill>
+            <RadialGradient centerX="0.7134831460674157" centerY="0.798076923076923" radius="0.5">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill></Button>
+      <ListView fx:id="cust" layoutX="56.0" layoutY="25.0" onMouseClicked="#seeAccountInfo" prefHeight="315.0" prefWidth="190.0" />
+      <Label fx:id="showName" layoutX="294.0" layoutY="48.0" prefHeight="17.0" prefWidth="200.0" />
+      <Label fx:id="showSsn" layoutX="296.0" layoutY="82.0" prefHeight="17.0" prefWidth="200.0" />
+      <Label fx:id="showAccount" layoutX="295.0" layoutY="109.0" prefHeight="23.0" prefWidth="200.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Label>
-      <ListView layoutX="253.0" layoutY="140.0" prefHeight="125.0" prefWidth="200.0" />
-      <Label fx:id="showNr" layoutX="253.0" layoutY="280.0" prefHeight="17.0" prefWidth="200.0" text="kontonr" />
-      <Label fx:id="showBalance" layoutX="253.0" layoutY="317.0" prefHeight="17.0" prefWidth="200.0" text="saldo" />
-      <Label fx:id="showInterest" layoutX="253.0" layoutY="352.0" prefHeight="17.0" prefWidth="200.0" text="räntesats" />
+      <ListView layoutX="296.0" layoutY="141.0" prefHeight="131.0" prefWidth="231.0" />
+      <Label fx:id="showNr" layoutX="297.0" layoutY="289.0" prefHeight="17.0" prefWidth="200.0" text="kontonr" />
+      <Label fx:id="showBalance" layoutX="297.0" layoutY="321.0" prefHeight="17.0" prefWidth="183.0" text="saldo" />
+      <Label fx:id="showInterest" layoutX="296.0" layoutY="354.0" prefHeight="17.0" prefWidth="190.0" text="räntesats" />
+      <Button layoutX="538.0" layoutY="141.0" mnemonicParsing="false" text="Withd.">
+         <textFill>
+            <RadialGradient centerX="0.7134831460674157" centerY="0.798076923076923" radius="0.5">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="537.0" layoutY="176.0" mnemonicParsing="false" text="Dep.">
+         <textFill>
+            <RadialGradient centerX="0.7134831460674157" centerY="0.798076923076923" radius="0.5">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="537.0" layoutY="211.0" mnemonicParsing="false" text="Remove">
+         <textFill>
+            <RadialGradient centerX="0.7134831460674157" centerY="0.798076923076923" radius="0.5">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="537.0" layoutY="245.0" mnemonicParsing="false" text="Add">
+         <textFill>
+            <RadialGradient centerX="0.7134831460674157" centerY="0.798076923076923" radius="0.5">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="9.0" layoutY="26.0" mnemonicParsing="false" text="+">
+         <textFill>
+            <LinearGradient endY="0.23557692307692313">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" text=".txt" />
+      <Button layoutX="10.0" layoutY="88.0" mnemonicParsing="false" text="-">
+         <textFill>
+            <LinearGradient endY="0.23557692307692313">
+               <stops>
+                  <Stop color="#f80000" />
+                  <Stop color="#141313" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
     </children>
 </AnchorPane>
