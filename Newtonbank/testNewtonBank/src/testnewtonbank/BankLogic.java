@@ -207,7 +207,7 @@ public class BankLogic {
     public List<String> getCustomers(){
      List<String> customerInfo = new ArrayList();   
     for(Customer c : customerList){
-        customerInfo.add("name = " +  c.getName() + " Social security = " + c.getSsn());
+        customerInfo.add(c.getName() + " -- " + c.getSsn());
     }
     return customerInfo;
     }
